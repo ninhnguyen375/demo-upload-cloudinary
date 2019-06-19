@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="file" name="image" id="image">
+  <button onclick="upload()">Upload</button>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    async function upload() {
+      const file = document.getElementById('image').files[0];
+      let data = new FormData();
+
+      data.append('image', file);
+
+      const config = {
+        headers: { 'content-type': 'multipart/form-data' }
+      }
+
+      const res = await axios.post('http://localhost:3000/upload/image', data, config)
+
+      console.log(res);
+    }
+  </script>
+</body>
+
+</html>
