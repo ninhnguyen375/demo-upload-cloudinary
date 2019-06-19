@@ -24,7 +24,7 @@
         headers: { 'content-type': 'multipart/form-data' }
       }
 
-      const res = await axios.post('http://localhost:3000/upload/image', data, config)
+      const res = await axios.post('/upload/image', data, config)
 
       console.log(res);
     }
